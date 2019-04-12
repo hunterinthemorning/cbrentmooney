@@ -1,5 +1,12 @@
+html, body, #root, .App, .row, .col {
+  height: 100%;
+}
+
 .App {
   text-align: center;
+  height: 100%;
+  background: url(02.jpg);
+  background-size: cover;
 }
 
 .App-logo {
@@ -31,3 +38,84 @@
     transform: rotate(360deg);
   }
 }
+
+#navigation {
+  left: 10rem;
+  bottom: 5rem;
+  /*top: 70px;*/
+  top: 5rem;
+  right: auto;
+  width: 300px;
+  position: absolute;
+}
+
+#navigation ul, #navigationMobile ul {
+  list-style: none;
+  padding: 0;
+}
+
+#navigation li, #navigationMobile li {
+  text-align: left;
+  padding-bottom: 1rem;
+}
+
+#navigation a, #navigationMobile a {
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+#navNameBox {
+  background-color: #FFC000;
+  position: absolute;
+  bottom: 0;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  font-size: 30px;
+  padding: 40px 20px 40px 20px;
+}
+
+#sidebar {
+  height: 100%;
+  background-color: #FFC000;
+  color: black;
+}
+
+#closeButton {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}
+
+.videoModalButton {
+  cursor: pointer;
+}
+
+/* Phone Start */
+#navigationMobile {
+  left: 3rem;
+  bottom: 2rem;
+  top: 2rem;
+  right: auto;
+  width: 300px;
+  position: absolute;
+}
+
+#navNameBoxMobile {
+  background-color: #FFC000;
+  position: absolute;
+  bottom: 0;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 40px 20px 40px 20px;
+  font-size: 30px;
+  width: 100%;
+}
+/* Phone End */
