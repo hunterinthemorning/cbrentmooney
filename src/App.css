@@ -1,89 +1,201 @@
-html, body, #root, .App, .row, .col {
+/* Start Desktop */
+
+#aboutme {
+  /*transform: translateX(-150px);*/
+  transition: transform 400ms ease-in;
+  
+  color: white;
+  /*width: 100px;*/
+  width: 50%;
   height: 100%;
+  background-color: red;
+  /*padding: 20px;*/
+  font-family: sans-serif;
+
+  position: absolute;
+  z-index: 1;
 }
 
-.App {
-  text-align: center;
+#aboutme.slideIn {
+  transform: translateX(0);
+}
+
+#aboutme.slideOut {
+  transform: translateX(-100%);
+}
+
+#portfolio {
+  /*transform: translateX(-150px);*/
+  transition: transform 400ms ease-in;
+  
+  color: white;
+  /*width: 100px;*/
+  width: 50%;
+  height: 100%;
+  background-color: green;
+  /*padding: 20px;*/
+  font-family: sans-serif;
+
+  position: absolute;
+  z-index: 1;
+}
+
+#portfolio.slideIn {
+  transform: translateX(0);
+}
+
+#portfolio.slideOut {
+  transform: translateX(-100%);
+}
+
+#contact {
+  /*transform: translateX(-150px);*/
+  transition: transform 400ms ease-in;
+  
+  color: white;
+  /*width: 100px;*/
+  width: 50%;
+  height: 100%;
+  background-color: black;
+  /*padding: 20px;*/
+  font-family: sans-serif;
+
+  position: absolute;
+  z-index: 1;
+}
+
+#contact.slideIn {
+  transform: translateX(0);
+}
+
+#contact.slideOut {
+  transform: translateX(-100%);
+}
+
+#homepage {
+  transition: transform 400ms ease-in;
+  font-family: sans-serif;
+}
+
+#homepage.slideRight {
+  transform: translateX(50%);
+}
+
+#homepage.slideLeft {
+  transform: translateX(0);
+}
+/* End Desktop */
+
+/* Start Mobile */
+
+#aboutmeMobile {
+  /*transform: translateX(-150px);*/
+  transition: transform 400ms ease-in;
+  
+  color: white;
+  /*width: 100px;*/
+  width: 100%;
+  height: 100%;
+  background-color: red;
+  /*padding: 20px;*/
+  font-family: sans-serif;
+
+  position: absolute;
+  z-index: 1;
+}
+
+#aboutmeMobile.slideIn {
+  transform: translateX(0);
+}
+
+#aboutmeMobile.slideOut {
+  transform: translateX(-100%);
+}
+
+#portfolioMobile {
+  /*transform: translateX(-150px);*/
+  transition: transform 400ms ease-in;
+  
+  color: white;
+  /*width: 100px;*/
+  width: 100%;
+  height: 100%;
+  background-color: green;
+  /*padding: 20px;*/
+  font-family: sans-serif;
+
+  position: absolute;
+  z-index: 1;
+}
+
+#portfolioMobile.slideIn {
+  transform: translateX(0);
+}
+
+#portfolioMobile.slideOut {
+  transform: translateX(-100%);
+}
+
+#contactMobile {
+  /*transform: translateX(-150px);*/
+  transition: transform 400ms ease-in;
+  
+  color: white;
+  /*width: 100px;*/
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  /*padding: 20px;*/
+  font-family: sans-serif;
+
+  position: absolute;
+  z-index: 1;
+}
+
+#contactMobile.slideIn {
+  transform: translateX(0);
+}
+
+#contactMobile.slideOut {
+  transform: translateX(-100%);
+}
+
+
+#homepageMobile {
+  transition: transform 400ms ease-in;
+  font-family: sans-serif;
+}
+
+#homepageMobile.slideRight {
+  transform: translateX(100%);
+}
+
+#homepageMobile.slideLeft {
+  transform: translateX(0);
+}
+/* End Mobile */
+
+
+
+/* --------Global------------- */
+
+#root {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+#App {
+  width: 100%;
   height: 100%;
   background: url(02.jpg);
   background-size: cover;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-#navigation {
-  left: 10rem;
-  bottom: 5rem;
-  /*top: 70px;*/
-  top: 5rem;
-  right: auto;
-  width: 300px;
-  position: absolute;
-}
-
-#navigation ul, #navigationMobile ul {
-  list-style: none;
-  padding: 0;
-}
-
-#navigation li, #navigationMobile li {
-  text-align: left;
-  padding-bottom: 1rem;
-}
-
-#navigation a, #navigationMobile a {
-  padding: 0.5rem;
-  cursor: pointer;
-  background-color: black;
-  color: white;
-}
-
-#navNameBox {
-  background-color: #FFC000;
-  position: absolute;
-  bottom: 0;
-  display: block;
-  cursor: pointer;
-  overflow: hidden;
-  font-size: 30px;
-  padding: 40px 20px 40px 20px;
-}
-
-#sidebar {
-  height: 100%;
-  background-color: #FFC000;
-  color: black;
-}
-
-#closeButton {
+#aboutmeCloseButton {
   position: absolute;
   right: 1rem;
   top: 0;
@@ -91,31 +203,81 @@ html, body, #root, .App, .row, .col {
   cursor: pointer;
   background-color: black;
   color: white;
+  z-index: 2;
 }
 
-.videoModalButton {
-  cursor: pointer;
-}
-
-/* Phone Start */
-#navigationMobile {
-  left: 3rem;
-  bottom: 2rem;
-  top: 2rem;
-  right: auto;
-  width: 300px;
+#portfolioCloseButton {
   position: absolute;
+  right: 1rem;
+  top: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  z-index: 2;
 }
 
-#navNameBoxMobile {
+#contactCloseButton {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  z-index: 2;
+}
+
+#homepageContainer,#homepage,#homepageMobile {
+  height: 100%;
+}
+
+#homepageContainer {
+  position: absolute;
+  width: 100%;
+
+}
+
+#nameBox {
   background-color: #FFC000;
   position: absolute;
   bottom: 0;
   display: block;
   cursor: pointer;
   overflow: hidden;
-  padding: 40px 20px 40px 20px;
   font-size: 30px;
-  width: 100%;
+  /*padding: 40px 20px 40px 20px;*/
+  padding: 2% 1% 2% 1%;
+  margin: 0px 2% 2% 2%;
 }
-/* Phone End */
+
+#navmenu {
+  padding: 2% 1% 2% 1%;
+  margin: 0% 2% 0% 2%;
+  transition: transform 400ms ease-in;
+}
+
+#navmenu.slideDown {
+  transform: translateY(0);
+}
+
+#navmenu.slideUp {
+  transform: translateY(-100%);
+}
+
+#navmenu ul {
+  list-style: none;
+  padding: 0;
+}
+
+#navmenu li {
+  text-align: left;
+  padding-bottom: 1rem;
+}
+
+#navmenu a {
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+}

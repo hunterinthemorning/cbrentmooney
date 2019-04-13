@@ -1,73 +1,163 @@
 import React, { Component } from 'react';
-import './App.css';
-import Container from 'react-bootstrap/Container'; 
-import Row from 'react-bootstrap/Row'; 
-import Col from 'react-bootstrap/Col'; 
-import Button from 'react-bootstrap/Button'; 
-import Modal from 'react-bootstrap/Modal'; 
+import './App.css'; 
 import MediaQuery from 'react-responsive';
+import Modal from 'react-bootstrap/Modal'; 
+
+const HomePage = ({ visible,navVisible,click,sidebarClick,aboutClick,portfolioClick,contactClick,navClose }) => (
+  <div id="homepageContainer">  
+    <MediaQuery query="(min-device-width: 1224px)">
+      <div id="homepage" className={visible ? 'slideRight' : 'slideLeft'}>
+        <NavMenu visible={navVisible} click={sidebarClick} aboutClick={aboutClick} portfolioClick={portfolioClick}
+          contactClick={contactClick} close={navClose} />
+        <div id="nameBox" onClick={click}>C Brent Mooney</div>
+      </div>
+    </MediaQuery>
+    <MediaQuery query="(max-device-width: 1224px)">
+      <div id="homepageMobile" className={visible ? 'slideRight' : 'slideLeft'}>
+        <NavMenu visible={navVisible} aboutClick={aboutClick} portfolioClick={portfolioClick}
+          contactClick={contactClick} close={navClose} />
+        <div id="nameBox" onClick={click}>C Brent Mooney</div>
+      </div>
+    </MediaQuery>
+  </div>  
+)
+
+const NavMenu = ({ visible,aboutClick,portfolioClick,contactClick,close }) => (
+  <div id="navmenu" className={visible ? 'slideDown' : 'slideUp'}>
+    <ul>
+      <li><a onClick={aboutClick}>About Me</a></li>
+      <li><a onClick={portfolioClick}>Portfolio</a></li>
+      <li><a onClick={contactClick}>Contact</a></li>
+      <li><a onClick={close}>X</a></li>
+    </ul>
+  </div>  
+)
+
+const AboutSideBar = ({ visible,close }) => ( 
+  <div id="aboutmeContainer">
+    <MediaQuery query="(min-device-width: 1224px)">
+      <div id="aboutme" className={visible ? 'slideIn' : 'slideOut'}>
+        <div id="aboutmeCloseButton" onClick={close}>X</div>
+        <div id="aboutmeContents">About Me</div>
+      </div>
+    </MediaQuery>
+    <MediaQuery query="(max-device-width: 1224px)">
+      <div id="aboutmeMobile" className={visible ? 'slideIn' : 'slideOut'}>
+        <div id="aboutmeCloseButton" onClick={close}>X</div>
+        <div id="aboutmeContents">About Me</div>
+      </div>
+    </MediaQuery>
+  </div>
+)
+
+const PortfolioSideBar = ({ visible,close }) => ( 
+  <div id="portfolioContainer">
+    <MediaQuery query="(min-device-width: 1224px)">
+      <div id="portfolio" className={visible ? 'slideIn' : 'slideOut'}>
+        <div id="portfolioCloseButton" onClick={close}>X</div>
+        <div id="portfolioContents">Portfolio</div>
+      </div>
+    </MediaQuery>
+    <MediaQuery query="(max-device-width: 1224px)">
+      <div id="portfolioMobile" className={visible ? 'slideIn' : 'slideOut'}>
+        <div id="portfolioCloseButton" onClick={close}>X</div>
+        <div id="portfolioContents">Portfolio</div>
+      </div>
+    </MediaQuery>
+  </div>
+)
+
+const ContactSideBar = ({ visible,close }) => ( 
+  <div id="contactContainer">
+    <MediaQuery query="(min-device-width: 1224px)">
+      <div id="contact" className={visible ? 'slideIn' : 'slideOut'}>
+        <div id="contactCloseButton" onClick={close}>X</div>
+        <div id="contactContents">Contact</div>
+      </div>
+    </MediaQuery>
+    <MediaQuery query="(max-device-width: 1224px)">
+      <div id="contactMobile" className={visible ? 'slideIn' : 'slideOut'}>
+        <div id="contactCloseButton" onClick={close}>X</div>
+        <div id="contactContents">Contact</div>
+      </div>
+    </MediaQuery>
+  </div>
+)
 
 class App extends Component {
 
-  //Testing Upload
-
   state = {
-    showNavMenu: false,
-    showSidebar: false,
-    //isMobile: false
-    showModal: false
+    sidebarVisible: false,
+    aboutVisible: false,
+    portfolioVisible: false,
+    contactVisible: false,
+    navmenuVisible: false
   }
 
-  toggleNavMenu = (event) => {
-    const doesShow = this.state.showNavMenu;
-    this.setState({showNavMenu: !doesShow});
+  openNavMenu = () => {
+    this.setState({navmenuVisible: true});
   }
 
-  toggleModal = (event) => {
-    const doesShow = this.state.showModal;
-    this.setState({showModal: !doesShow});
+  closeNavMenu = () => {
+    this.setState({navmenuVisible: false});
   }
 
-  openSidebar = (event) => {
-    //const doesShow = this.state.showSidebar;
-    //this.setState({showSidebar: !doesShow});
-    this.setState({showSidebar: true});
+  /* About Me */
+  openAboutMe = () => {
+    this.setState({
+      sidebarVisible: true,
+      aboutVisible: true,
+      portfolioVisible: false,
+      contactVisible: false
+    });
   }
 
-  closeSidebar = (event) => {
-    this.setState({showSidebar: false});
+  closeAboutMe = () => {
+    this.setState({
+      sidebarVisible: false,
+      aboutVisible: false,
+      portfolioVisible: false,
+      contactVisible: false});
+  }
+
+  /* Portfolio */
+  openPortfolio = () => {
+    this.setState({
+      sidebarVisible: true,
+      aboutVisible: false,
+      portfolioVisible: true,
+      contactVisible: false});
+  }
+
+  closePortfolio = () => {
+    this.setState({
+      sidebarVisible: false,
+      aboutVisible: false,
+      portfolioVisible: false,
+      contactVisible: false});
+  }
+
+  /* Contact */
+  openContact = () => {
+    this.setState({
+      sidebarVisible: true,
+      aboutVisible: false,
+      portfolioVisible: false,
+      contactVisible: true});
+  }
+
+  closeContact = () => {
+    this.setState({
+      sidebarVisible: false,
+      aboutVisible: false,
+      portfolioVisible: false,
+      contactVisible: false});
   }
 
   render() {
 
-    let navMenu = null;
-    //Look at react meetup code to slide this in slowly
-    if(this.state.showNavMenu){
-      navMenu = (
-        <div id="navMenu">
-          <ul>
-            <li><a onClick={(event) => this.openSidebar(event)}>About Me</a></li>
-            <li><a onClick={(event) => this.openSidebar(event)}>Portfolio</a></li>
-            <li><a onClick={(event) => this.openSidebar(event)}>Contact</a></li>
-          </ul>
-        </div>
-      );
-    }
-
-    let sidebar = null;
-    if(this.state.showSidebar){
-      sidebar = (
-        <Col>  
-          <div id="sidebar">
-            <a id="closeButton" onClick={(event) => this.closeSidebar(event)}>X</a>
-            <div className="videoModalButton" onClick={(event) => this.toggleModal(event)}>Test</div>
-          </div>
-        </Col>
-      );
-    }
-
     return (
-      <div className="App">
+      <div id="App">
 
         <Modal
           show={this.state.showModal}
@@ -93,38 +183,12 @@ class App extends Component {
           </Modal.Body>
         </Modal>
 
-        <MediaQuery query="(min-device-width: 1224px)">
-
-          <Row>
-            {sidebar}
-            <Col>
-              <div id="navigation">
-                {navMenu}
-                <div id="navNameBox" onClick={(event) => this.toggleNavMenu(event)}>C Brent Mooney</div>
-              </div>
-            </Col>
-          </Row>
-
-        </MediaQuery>
-
-        <MediaQuery query="(max-device-width: 1224px)">
-        
-        {this.state.showSidebar ? (
-          <Row>
-            {sidebar}
-          </Row>
-        ) : (
-          <Row>
-            <Col>
-              <div id="navigationMobile">
-                {navMenu}
-                <div id="navNameBoxMobile" onClick={(event) => this.toggleNavMenu(event)}>C Brent Mooney</div>
-              </div>
-            </Col>
-          </Row>
-        )}
-
-        </MediaQuery>
+        <HomePage visible={this.state.sidebarVisible} navVisible={this.state.navmenuVisible} click={this.openNavMenu}
+          sidebarClick={this.openSidebar} aboutClick={this.openAboutMe} portfolioClick={this.openPortfolio} contactClick={this.openContact}
+          navClose={this.closeNavMenu} />
+        <AboutSideBar visible={this.state.aboutVisible} close={this.closeAboutMe} />
+        <PortfolioSideBar visible={this.state.portfolioVisible} close={this.closePortfolio} />
+        <ContactSideBar visible={this.state.contactVisible} close={this.closeContact} />
       </div>
     );
   }
