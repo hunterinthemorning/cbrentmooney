@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css'; 
 import MediaQuery from 'react-responsive';
-import Modal from 'react-bootstrap/Modal'; 
+import Modal from 'react-bootstrap/Modal';
+import ReactPlayer from 'react-player';
 
 const HomePage = ({ visible,navVisible,click,sidebarClick,aboutClick,portfolioClick,contactClick,navClose }) => (
   <div id="homepageContainer">  
@@ -38,13 +39,31 @@ const AboutSideBar = ({ visible,close }) => (
     <MediaQuery query="(min-device-width: 1224px)">
       <div id="aboutme" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="aboutmeCloseButton" onClick={close}>X</div>
-        <div id="aboutmeContents">About Me</div>
+        <div id="aboutmeContents">
+          <h2>About Me</h2>
+          <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
+              unde commodi aspernatur enim, consectetur. Cumque deleniti
+              temporibus ipsam atque a dolores quisquam quisquam adipisci
+              possimus laboriosam. Quibusdam facilis doloribus debitis! Sit
+              quasi quod accusamus eos quod. Ab quos consequuntur eaque quo rem!
+              Mollitia reiciendis porro quo magni incidunt dolore amet atque
+              facilis ipsum deleniti rem!</p>
+        </div>
       </div>
     </MediaQuery>
     <MediaQuery query="(max-device-width: 1224px)">
       <div id="aboutmeMobile" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="aboutmeCloseButton" onClick={close}>X</div>
-        <div id="aboutmeContents">About Me</div>
+        <div id="aboutmeContents">
+          <h2>About Me</h2>
+          <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
+              unde commodi aspernatur enim, consectetur. Cumque deleniti
+              temporibus ipsam atque a dolores quisquam quisquam adipisci
+              possimus laboriosam. Quibusdam facilis doloribus debitis! Sit
+              quasi quod accusamus eos quod. Ab quos consequuntur eaque quo rem!
+              Mollitia reiciendis porro quo magni incidunt dolore amet atque
+              facilis ipsum deleniti rem!</p>
+        </div>
       </div>
     </MediaQuery>
   </div>
@@ -55,13 +74,50 @@ const PortfolioSideBar = ({ visible,close }) => (
     <MediaQuery query="(min-device-width: 1224px)">
       <div id="portfolio" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="portfolioCloseButton" onClick={close}>X</div>
-        <div id="portfolioContents">Portfolio</div>
+        <div id="portfolioContents">
+          <h2>Portfolio</h2>
+          <ReactPlayer
+          url='https://vimeo.com/67325367'
+          className='react-player'
+          width='100%'
+          height='100%'
+          />
+          <ReactPlayer
+          url='https://vimeo.com/67907078'
+          className='react-player'
+          width='100%'
+          height='100%'
+          />
+          <ReactPlayer
+          url='https://vimeo.com/120757161'
+          className='react-player'
+          width='100%'
+          height='100%'
+          />
+          <ReactPlayer
+          url='https://vimeo.com/214726261'
+          className='react-player'
+          width='100%'
+          height='100%'
+          />
+        </div>
       </div>
     </MediaQuery>
     <MediaQuery query="(max-device-width: 1224px)">
       <div id="portfolioMobile" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="portfolioCloseButton" onClick={close}>X</div>
-        <div id="portfolioContents">Portfolio</div>
+        <div id="portfolioContents">
+          <h2>Portfolio</h2>
+          <div id="portfolioContents">
+            <h2>Portfolio</h2>
+            <ReactPlayer
+            url='https://vimeo.com/67325367'
+            className='react-player'
+            width='100%'
+            height='100%'
+            />
+          </div>
+        </div>
       </div>
     </MediaQuery>
   </div>
@@ -72,13 +128,31 @@ const ContactSideBar = ({ visible,close }) => (
     <MediaQuery query="(min-device-width: 1224px)">
       <div id="contact" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="contactCloseButton" onClick={close}>X</div>
-        <div id="contactContents">Contact</div>
+        <div id="contactContents">
+          <h2>Contact</h2>
+          <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
+              unde commodi aspernatur enim, consectetur. Cumque deleniti
+              temporibus ipsam atque a dolores quisquam quisquam adipisci
+              possimus laboriosam. Quibusdam facilis doloribus debitis! Sit
+              quasi quod accusamus eos quod. Ab quos consequuntur eaque quo rem!
+              Mollitia reiciendis porro quo magni incidunt dolore amet atque
+              facilis ipsum deleniti rem!</p>
+        </div>
       </div>
     </MediaQuery>
     <MediaQuery query="(max-device-width: 1224px)">
       <div id="contactMobile" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="contactCloseButton" onClick={close}>X</div>
-        <div id="contactContents">Contact</div>
+        <div id="contactContents">
+          <h2>Contact</h2>
+          <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
+              unde commodi aspernatur enim, consectetur. Cumque deleniti
+              temporibus ipsam atque a dolores quisquam quisquam adipisci
+              possimus laboriosam. Quibusdam facilis doloribus debitis! Sit
+              quasi quod accusamus eos quod. Ab quos consequuntur eaque quo rem!
+              Mollitia reiciendis porro quo magni incidunt dolore amet atque
+              facilis ipsum deleniti rem!</p>
+        </div>
       </div>
     </MediaQuery>
   </div>

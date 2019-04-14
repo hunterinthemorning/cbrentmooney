@@ -195,6 +195,14 @@
   background-size: cover;
 }
 
+#aboutmeContents {
+  padding: 2rem 1rem 2rem 1rem;
+}
+
+#aboutmeContents h2 {
+  text-align: center;
+}
+
 #aboutmeCloseButton {
   position: absolute;
   right: 1rem;
@@ -206,6 +214,14 @@
   z-index: 2;
 }
 
+#portfolioContents {
+  padding: 2rem 1rem 2rem 1rem;
+}
+
+#portfolioContents h2 {
+  text-align: center;
+}
+
 #portfolioCloseButton {
   position: absolute;
   right: 1rem;
@@ -215,6 +231,14 @@
   background-color: black;
   color: white;
   z-index: 2;
+}
+
+#contactContents {
+  padding: 2rem 1rem 2rem 1rem;
+}
+
+#contactContents h2 {
+  text-align: center;
 }
 
 #contactCloseButton {
@@ -280,4 +304,8 @@
   cursor: pointer;
   background-color: black;
   color: white;
+}
+
+.react-player div {
+  background-color: inherit !important;
 }
