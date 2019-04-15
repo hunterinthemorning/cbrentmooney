@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import './App.css'; 
 import MediaQuery from 'react-responsive';
 import Modal from 'react-bootstrap/Modal';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 import ReactPlayer from 'react-player';
 
 const HomePage = ({ visible,navVisible,click,sidebarClick,aboutClick,portfolioClick,contactClick,navClose }) => (
@@ -76,30 +79,45 @@ const PortfolioSideBar = ({ visible,close }) => (
         <div id="portfolioCloseButton" onClick={close}>X</div>
         <div id="portfolioContents">
           <h2>Portfolio</h2>
-          <ReactPlayer
-          url='https://vimeo.com/67325367'
-          className='react-player'
-          width='100%'
-          height='100%'
-          />
-          <ReactPlayer
-          url='https://vimeo.com/67907078'
-          className='react-player'
-          width='100%'
-          height='100%'
-          />
-          <ReactPlayer
-          url='https://vimeo.com/120757161'
-          className='react-player'
-          width='100%'
-          height='100%'
-          />
-          <ReactPlayer
-          url='https://vimeo.com/214726261'
-          className='react-player'
-          width='100%'
-          height='100%'
-          />
+          <Container>
+            <Row id="desktopRow">
+              <Col>
+                <ReactPlayer
+                url='https://vimeo.com/67325367'
+                className='react-player'
+                width='100%'
+                height='100%'
+                />
+              </Col>
+              <Col>
+                <ReactPlayer
+                url='https://vimeo.com/67907078'
+                className='react-player'
+                width='100%'
+                height='100%'
+                />
+              </Col>
+            </Row>
+            
+            <Row id="desktopRow">
+              <Col>
+                <ReactPlayer
+                url='https://vimeo.com/120757161'
+                className='react-player'
+                width='100%'
+                height='100%'
+                />
+              </Col>
+              <Col>
+                <ReactPlayer
+                url='https://vimeo.com/214726261'
+                className='react-player'
+                width='100%'
+                height='100%'
+                />
+              </Col>
+            </Row>
+          </Container>
         </div>
       </div>
     </MediaQuery>
@@ -108,15 +126,49 @@ const PortfolioSideBar = ({ visible,close }) => (
         <div id="portfolioCloseButton" onClick={close}>X</div>
         <div id="portfolioContents">
           <h2>Portfolio</h2>
-          <div id="portfolioContents">
-            <h2>Portfolio</h2>
-            <ReactPlayer
-            url='https://vimeo.com/67325367'
-            className='react-player'
-            width='100%'
-            height='100%'
-            />
-          </div>
+          <Container>
+            <Row>
+              <Col>
+                <ReactPlayer
+                url='https://vimeo.com/67325367'
+                className='react-player'
+                width='100%'
+                height='100%'
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <ReactPlayer
+                url='https://vimeo.com/67907078'
+                className='react-player'
+                width='100%'
+                height='100%'
+                />
+              </Col>
+            </Row>
+            
+            <Row>
+              <Col>
+                <ReactPlayer
+                url='https://vimeo.com/120757161'
+                className='react-player'
+                width='100%'
+                height='100%'
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <ReactPlayer
+                url='https://vimeo.com/214726261'
+                className='react-player'
+                width='100%'
+                height='100%'
+                />
+              </Col>
+            </Row>
+          </Container>
         </div>
       </div>
     </MediaQuery>
