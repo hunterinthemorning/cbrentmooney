@@ -43,7 +43,7 @@ const AboutSideBar = ({ visible,close }) => (
     <MediaQuery query="(min-device-width: 1224px)">
       <div id="aboutme" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="aboutmeCloseButton" onClick={close}>X</div>
-        <div id="aboutmeContents" className="scrollable">
+        <div id="aboutmeContents">
           <h2>About Me</h2>
           <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
               unde commodi aspernatur enim, consectetur. Cumque deleniti
@@ -58,7 +58,7 @@ const AboutSideBar = ({ visible,close }) => (
     <MediaQuery query="(max-device-width: 1224px)">
       <div id="aboutmeMobile" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="aboutmeCloseButton" onClick={close}>X</div>
-        <div id="aboutmeContents" className="scrollable">
+        <div id="aboutmeContents">
           <h2>About Me</h2>
           <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
               unde commodi aspernatur enim, consectetur. Cumque deleniti
@@ -78,7 +78,7 @@ const ServicesSideBar = ({ visible,close }) => (
     <MediaQuery query="(min-device-width: 1224px)">
       <div id="services" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="servicesCloseButton" onClick={close}>X</div>
-        <div id="servicesContents" className="scrollable">
+        <div id="servicesContents">
           <h2>Services</h2>
           <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
               unde commodi aspernatur enim, consectetur. Cumque deleniti
@@ -93,7 +93,7 @@ const ServicesSideBar = ({ visible,close }) => (
     <MediaQuery query="(max-device-width: 1224px)">
       <div id="servicesMobile" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="servicesCloseButton" onClick={close}>X</div>
-        <div id="servicesContents" className="scrollable">
+        <div id="servicesContents">
           <h2>Services</h2>
           <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
               unde commodi aspernatur enim, consectetur. Cumque deleniti
@@ -256,7 +256,7 @@ const ContactSideBar = ({ visible,close }) => (
     <MediaQuery query="(min-device-width: 1224px)">
       <div id="contact" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="contactCloseButton" onClick={close}>X</div>
-        <div id="contactContents" className="scrollable">
+        <div id="contactContents">
           <h2>Contact</h2>
           <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
               unde commodi aspernatur enim, consectetur. Cumque deleniti
@@ -271,7 +271,7 @@ const ContactSideBar = ({ visible,close }) => (
     <MediaQuery query="(max-device-width: 1224px)">
       <div id="contactMobile" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="contactCloseButton" onClick={close}>X</div>
-        <div id="contactContents" className="scrollable">
+        <div id="contactContents">
           <h2>Contact</h2>
           <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
               unde commodi aspernatur enim, consectetur. Cumque deleniti
