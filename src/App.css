@@ -24,6 +24,30 @@
   transform: translateX(-100%);
 }
 
+#services {
+  /*transform: translateX(-150px);*/
+  transition: transform 400ms ease-in;
+  
+  color: white;
+  /*width: 100px;*/
+  width: 50%;
+  height: 100%;
+  background-color: yellow;
+  /*padding: 20px;*/
+  font-family: sans-serif;
+
+  position: absolute;
+  z-index: 1;
+}
+
+#services.slideIn {
+  transform: translateX(0);
+}
+
+#services.slideOut {
+  transform: translateX(-100%);
+}
+
 #portfolio {
   /*transform: translateX(-150px);*/
   transition: transform 400ms ease-in;
@@ -116,6 +140,30 @@
   transform: translateX(-100%);
 }
 
+#servicesMobile {
+  /*transform: translateX(-150px);*/
+  transition: transform 400ms ease-in;
+  
+  color: white;
+  /*width: 100px;*/
+  width: 100%;
+  height: 100%;
+  background-color: yellow;
+  /*padding: 20px;*/
+  font-family: sans-serif;
+
+  position: absolute;
+  z-index: 1;
+}
+
+#servicesMobile.slideIn {
+  transform: translateX(0);
+}
+
+#servicesMobile.slideOut {
+  transform: translateX(-100%);
+}
+
 #portfolioMobile {
   /*transform: translateX(-150px);*/
   transition: transform 400ms ease-in;
@@ -177,6 +225,10 @@
 #homepageMobile.slideLeft {
   transform: translateX(0);
 }
+
+#portfolioMobile#portfolioContents.row {
+  padding-bottom: 1rem;
+}
 /* End Mobile */
 
 
@@ -208,6 +260,25 @@
 }
 
 #aboutmeCloseButton {
+  position: absolute;
+  right: 1rem;
+  top: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  z-index: 2;
+}
+
+#servicesContents {
+  padding: 2rem 1rem 2rem 1rem;
+}
+
+#servicesContents h2 {
+  text-align: center;
+}
+
+#servicesCloseButton {
   position: absolute;
   right: 1rem;
   top: 0;
@@ -280,14 +351,15 @@
   overflow: hidden;
   font-size: 30px;
   /*padding: 40px 20px 40px 20px;*/
-  padding: 2% 1% 2% 1%;
-  margin: 0px 2% 2% 2%;
+  padding: 1rem 0.5rem 1rem 0.5rem;
+  margin: 0 1.5rem 1.5rem 1.5rem;
 }
 
 #navmenu {
-  padding: 2% 1% 2% 1%;
-  margin: 0% 2% 0% 2%;
+  padding: 1.5rem 0 1.5rem 0;
+  margin: 0 1.5rem 0 1.5rem;
   transition: transform 400ms ease-in;
+  font-size: 22px;
 }
 
 #navmenu.slideDown {
@@ -301,6 +373,7 @@
 #navmenu ul {
   list-style: none;
   padding: 0;
+  display: inline-block;
 }
 
 #navmenu li {
@@ -308,13 +381,21 @@
   padding-bottom: 1rem;
 }
 
-#navmenu a {
+#navmenu div {
   padding: 0.5rem;
   cursor: pointer;
   background-color: black;
   color: white;
 }
 
+#navmenuClose {
+  display: inline;
+}
+
 .react-player div {
   background-color: inherit !important;
+}
+
+.scrollable {
+  overflow-y: scroll;
 }
