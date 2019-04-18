@@ -17,6 +17,6 @@ setInterval(function() {
     if(typeof elem !== 'undefined' && elem !== null && blinking === 'true') {
         document.getElementById('nameBox').classList.toggle('blinkingBorder');
     } else {
-        document.getElementById('nameBox').style.border = 0;
+        document.getElementById('nameBox').style.outline = 0;
     }
 }, 1000);

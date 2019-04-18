@@ -18,15 +18,11 @@
 }
 
 #aboutme {
-  /*transform: translateX(-150px);*/
   transition: transform 400ms ease-in;
   
   color: white;
-  /*width: 100px;
-  width: 50%;*/
   height: 100%;
   background-color: red;
-  /*padding: 20px;*/
 
   position: absolute;
   z-index: 1;
@@ -40,16 +36,32 @@
   transform: translateX(-100%);
 }
 
+#aboutmePic {
+  /*background-color: aqua;*/
+  background-image: url(deadpool.jpg);
+  background-size: cover;
+  transition: transform 400ms ease-in;
+  position: absolute;
+  height: 100%;
+  width: 76%;
+  right: 0;
+}
+
+#aboutmePic.slideIn {
+  transform: translateX(0%);
+}
+
+#aboutmePic.slideOut {
+  transform: translateX(100%);
+}
+
 #services {
-  /*transform: translateX(-150px);*/
   transition: transform 400ms ease-in;
   
   color: white;
-  /*width: 100px;*/
   width: 50%;
   height: 100%;
   background-color: yellow;
-  /*padding: 20px;*/
 
   position: absolute;
   z-index: 1;
@@ -64,15 +76,12 @@
 }
 
 #portfolio {
-  /*transform: translateX(-150px);*/
   transition: transform 400ms ease-in;
   
   color: white;
-  /*width: 100px;*/
   width: 50%;
   height: 100%;
   background-color: green;
-  /*padding: 20px;*/
 
   position: absolute;
   z-index: 1;
@@ -87,15 +96,12 @@
 }
 
 #contact {
-  /*transform: translateX(-150px);*/
   transition: transform 400ms ease-in;
   
   color: white;
-  /*width: 100px;*/
   width: 50%;
   height: 100%;
   background-color: black;
-  /*padding: 20px;*/
 
   position: absolute;
   z-index: 1;
@@ -131,24 +137,34 @@
 #homepage.slideLeft {
   transform: translateX(0);
 }
-
-#desktopRow {
-  height: 400px;
-}
 /* End Desktop */
 
 /* Start Mobile */
 
+#aboutmeContainerMobile {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transition: transform 400ms ease-in;
+}
+
+#aboutmeContainerMobile.slideIn {
+  transform: translateX(0);
+}
+
+#aboutmeContainerMobile.slideOut {
+  transform: translateX(-100%);
+}
+
 #aboutmeMobile {
-  /*transform: translateX(-150px);*/
   transition: transform 400ms ease-in;
   
   color: white;
-  /*width: 100px;*/
   width: 100%;
   height: 100%;
   background-color: red;
-  /*padding: 20px;*/
 
   position: absolute;
   z-index: 1;
@@ -163,15 +179,12 @@
 }
 
 #servicesMobile {
-  /*transform: translateX(-150px);*/
   transition: transform 400ms ease-in;
   
   color: white;
-  /*width: 100px;*/
   width: 100%;
   height: 100%;
   background-color: yellow;
-  /*padding: 20px;*/
 
   position: absolute;
   z-index: 1;
@@ -186,15 +199,12 @@
 }
 
 #portfolioMobile {
-  /*transform: translateX(-150px);*/
   transition: transform 400ms ease-in;
   
   color: white;
-  /*width: 100px;*/
   width: 100%;
   height: 100%;
   background-color: green;
-  /*padding: 20px;*/
 
   position: absolute;
   z-index: 1;
@@ -209,15 +219,12 @@
 }
 
 #contactMobile {
-  /*transform: translateX(-150px);*/
   transition: transform 400ms ease-in;
   
   color: white;
-  /*width: 100px;*/
   width: 100%;
   height: 100%;
   background-color: black;
-  /*padding: 20px;*/
 
   position: absolute;
   z-index: 1;
@@ -234,8 +241,12 @@
 
 #homepageMobile {
   transition: transform 400ms ease-in;
-  padding: 1.5rem 0 1.5rem 0;
-  margin: 0 1.5rem 0 1.5rem;
+  position: absolute;
+  top: 5%;
+  right: 5%;
+  bottom: 5%;
+  left: 5%;
+  overflow: hidden;
 }
 
 #homepageMobile.slideRight {
@@ -246,7 +257,11 @@
   transform: translateX(0);
 }
 
-#portfolioMobile#portfolioContents.row {
+#homepageMobile #nameBox {
+  width: calc(100% - 3px);
+}
+
+#portfolioMobile #portfolioContents.row {
   padding-bottom: 1rem;
 }
 /* End Mobile */
@@ -266,6 +281,17 @@
 }
 
 #App {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /*background: url(02.jpg);*/
+  background-color:black;
+  background-size: cover;
+}
+
+#bgStill {
   position: absolute;
   top: 0;
   right: 0;
@@ -356,7 +382,7 @@
   z-index: 2;
 }
 
-#homepageContainer,#homepageMobile {
+#homepageContainer {
   height: 100%;
 }
 
@@ -385,10 +411,6 @@
   transform:translateX(0%);
 }
 
-/*@keyframes blink { 
-  50% { border-color: #ff0000; } 
-}*/
-
 #nameBox {
   background-color: #FFC000;
   color: white;
@@ -399,26 +421,19 @@
   overflow: hidden;
   font-size: 44px;
   padding: 40px 20px 40px 20px;
-  /*padding: 1rem 0.5rem 1rem 0.5rem;
-  margin: 0 1.5rem 1.5rem 1.5rem;*/
   text-transform: uppercase;
   line-height: 1;
   font-family: 'Dosis';
-  /*animation: blink .5s step-end infinite alternate;
-  animation-name: blink ;
-  animation-duration: .5s ;
-  animation-timing-function: step-end ;
-  animation-iteration-count: infinite ;
-  animation-direction: alternate ;*/
+  width: 296px;
+  bottom: 2px;
+  left: 2px;
 }
 
 #nameBox.blinkingBorder {
-  border: 2px solid red;
+  outline: 2px solid red;
 }
 
 #navmenu {
-  /*padding: 1.5rem 0 1.5rem 0;
-  margin: 0 1.5rem 0 1.5rem;*/
   transition: transform 400ms ease-in;
   font-size: 30px;
   text-transform: uppercase;
@@ -450,10 +465,16 @@
   cursor: pointer;
   background-color: black;
   color: white;
+  border: 2px solid #FFC000;
 }
 
 #navmenuClose {
   display: inline-block;
+  border: 2px solid #FFC000;
+}
+
+#portfolioContents .react-player {
+  margin: 1.5rem auto 0 auto;
 }
 
 .react-player div {
@@ -466,4 +487,48 @@
 
 #blinking {
   display:none;
+}
+
+#portfolioContents .container .row {
+  padding-bottom: 1.5rem;
+}
+
+#pfilter {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+button.active {
+  background-color: #FFC000 !important;
+}
+
+#navmenuSidebar {
+  text-transform: uppercase;
+  line-height: 1;
+  font-family: 'Dosis';
+  /*position: absolute;
+  bottom: 1rem;*/
+  margin-bottom: 1rem;
+}
+
+#navmenuSidebar ul {
+  list-style: none;
+  padding: 0;
+  display: inline-block;
+  margin-bottom: 0;
+
+}
+
+#navmenuSidebar li {
+  text-align: left;
+  padding-bottom: 0.25rem;
+  display: inline-block;
+}
+
+#navmenuSidebar div {
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: black;
+  color: white;
+  border: 2px solid #FFC000;
 }
