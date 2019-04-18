@@ -6,14 +6,32 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import ReactPlayer from 'react-player';
+import {VimeoPlayer} from 'react-video-players';
 
-const HomePage = ({ visible,navVisible,click,sidebarClick,aboutClick,servicesClick,portfolioClick,contactClick,navClose }) => (
-  <div id="homepageContainer">  
+const BgPlayer = () => (
+  <VimeoPlayer videoId="126742773" config={{autoplay:'true',muted:'true',playsinline:'true'}} />
+)
+const BgPlayer1 = () => (
+  <VimeoPlayer videoId="126742773" config={{playsinline:'true'}} />
+)
+const BgPlayer2 = () => (
+  <ReactPlayer
+  url='https://vimeo.com/126742773'
+  className='react-player'
+  width='100%'
+  height='100%'
+  />
+)
+
+const HomePage = ({ visible,navVisible,click,aboutClick,servicesClick,portfolioClick,contactClick,navClose,slide,blinking }) => (
+  <div id="homepageContainer" className={slide}>
+    <BgPlayer1 />
     <MediaQuery query="(min-device-width: 1224px)">
       <div id="homepage" className={visible ? 'slideRight' : 'slideLeft'}>
-        <NavMenu visible={navVisible} click={sidebarClick} aboutClick={aboutClick} servicesClick={servicesClick} 
-          portfolioClick={portfolioClick} contactClick={contactClick} close={navClose} />
+        <NavMenu visible={navVisible} aboutClick={aboutClick} servicesClick={servicesClick} 
+          portfolioClick={portfolioClick} contactClick={contactClick} close={navVisible ? navClose : click} />
         <div id="nameBox" onClick={click}>C Brent Mooney</div>
+        <div id="blinking">{blinking}</div>
       </div>
     </MediaQuery>
     <MediaQuery query="(max-device-width: 1224px)">
@@ -39,7 +57,7 @@ const NavMenu = ({ visible,aboutClick,servicesClick,portfolioClick,contactClick,
 )
 
 const AboutSideBar = ({ visible,close }) => ( 
-  <div id="aboutmeContainer">
+  <div id="aboutmeContainer" className={visible ? 'slideIn' : 'slideOut'}>
     <MediaQuery query="(min-device-width: 1224px)">
       <div id="aboutme" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="aboutmeCloseButton" onClick={close}>X</div>
@@ -294,11 +312,14 @@ class App extends Component {
     servicesVisible: false,
     portfolioVisible: false,
     contactVisible: false,
-    navmenuVisible: false
+    navmenuVisible: false,
+    slide: 'slideLeft',
+    blinking: 'true'
   }
 
   openNavMenu = () => {
-    this.setState({navmenuVisible: true});
+    this.setState({navmenuVisible: true,
+      blinking: 'false'});
   }
 
   closeNavMenu = () => {
@@ -307,12 +328,14 @@ class App extends Component {
 
   /* About Me */
   openAboutMe = () => {
+    const left = 0
     this.setState({
       sidebarVisible: true,
       aboutVisible: true,
       servicesVisible: false,
       portfolioVisible: false,
-      contactVisible: false
+      contactVisible: false,
+      slide: 'slideRightSm'
     });
   }
 
@@ -322,7 +345,9 @@ class App extends Component {
       aboutVisible: false,
       servicesVisible: false,
       portfolioVisible: false,
-      contactVisible: false});
+      contactVisible: false,
+      slide: 'slideLeft'
+    });
   }
 
   /* Services */
@@ -332,7 +357,8 @@ class App extends Component {
       aboutVisible: false,
       servicesVisible: true,
       portfolioVisible: false,
-      contactVisible: false
+      contactVisible: false,
+      slide: 'slideLeft'
     });
   }
 
@@ -342,7 +368,8 @@ class App extends Component {
       aboutVisible: false,
       servicesVisible: false,
       portfolioVisible: false,
-      contactVisible: false});
+      contactVisible: false
+    });
   }
 
   /* Portfolio */
@@ -352,7 +379,9 @@ class App extends Component {
       aboutVisible: false,
       servicesVisible: false,
       portfolioVisible: true,
-      contactVisible: false});
+      contactVisible: false,
+      slide: 'slideRightLg'    
+    });
   }
 
   closePortfolio = () => {
@@ -361,7 +390,9 @@ class App extends Component {
       aboutVisible: false,
       servicesVisible: false,
       portfolioVisible: false,
-      contactVisible: false});
+      contactVisible: false,
+      slide: 'slideLeft'
+    });
   }
 
   /* Contact */
@@ -371,7 +402,9 @@ class App extends Component {
       aboutVisible: false,
       servicesVisible: false,
       portfolioVisible: false,
-      contactVisible: true});
+      contactVisible: true,
+      slide: 'slideRightXSm'
+    });
   }
 
   closeContact = () => {
@@ -387,6 +420,8 @@ class App extends Component {
 
     return (
       <div id="App">
+      
+        
 
         <Modal
           show={this.state.showModal}
@@ -413,9 +448,9 @@ class App extends Component {
         </Modal>
 
         <HomePage visible={this.state.sidebarVisible} navVisible={this.state.navmenuVisible} click={this.openNavMenu}
-          sidebarClick={this.openSidebar} aboutClick={this.openAboutMe} servicesClick={this.openServices}
+          aboutClick={this.openAboutMe} servicesClick={this.openServices}
           portfolioClick={this.openPortfolio} contactClick={this.openContact}
-          navClose={this.closeNavMenu} />
+          navClose={this.closeNavMenu} slide={this.state.slide} blinking={this.state.blinking} />
         <AboutSideBar visible={this.state.aboutVisible} close={this.closeAboutMe} />
         <ServicesSideBar visible={this.state.servicesVisible} close={this.closeServices} />
         <PortfolioSideBar visible={this.state.portfolioVisible} close={this.closePortfolio} />

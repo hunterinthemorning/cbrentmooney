@@ -9,7 +9,8 @@
     "react-dom": "^16.8.6",
     "react-player": "^1.11.0",
     "react-responsive": "^6.1.1",
-    "react-scripts": "2.1.8"
+    "react-scripts": "2.1.8",
+    "react-video-players": "^0.1.11"
   },
   "scripts": {
     "start": "react-scripts start",

@@ -10,3 +10,13 @@ ReactDOM.render(<App />, document.getElementById('root'));
 // unregister() to register() below. Note this comes with some pitfalls.
 // Learn more about service workers: https://bit.ly/CRA-PWA
 serviceWorker.unregister();
+
+setInterval(function() {
+    var elem = document.getElementById('nameBox');
+    var blinking = document.getElementById('blinking').innerHTML;
+    if(typeof elem !== 'undefined' && elem !== null && blinking === 'true') {
+        document.getElementById('nameBox').classList.toggle('blinkingBorder');
+    } else {
+        document.getElementById('nameBox').style.border = 0;
+    }
+}, 1000);

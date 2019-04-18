@@ -1,12 +1,29 @@
 /* Start Desktop */
 
+#aboutmeContainer {
+  position: absolute;
+  top: 0;
+  right: 76%;
+  bottom: 0;
+  left: 0;
+  transition: transform 400ms ease-in;
+}
+
+#aboutmeContainer.slideIn {
+  transform: translateX(0);
+}
+
+#aboutmeContainer.slideOut {
+  transform: translateX(-100%);
+}
+
 #aboutme {
   /*transform: translateX(-150px);*/
   transition: transform 400ms ease-in;
   
   color: white;
-  /*width: 100px;*/
-  width: 50%;
+  /*width: 100px;
+  width: 50%;*/
   height: 100%;
   background-color: red;
   /*padding: 20px;*/
@@ -103,8 +120,12 @@
   width: 300px;
 }
 
-#homepage.slideRight {
+#homepage.slideRightLg {
   transform: translateX(50%);
+}
+
+#homepage.slideRightSm {
+  transform: translateX(15%);
 }
 
 #homepage.slideLeft {
@@ -345,8 +366,28 @@
   right: 0;
   bottom: 0;
   left: 0;
-
+  transition: transform 400ms ease-in;
 }
+
+#homepageContainer.slideRightLg {
+  transform: translateX(50%);
+}
+
+#homepageContainer.slideRightSm {
+  transform: translateX(24%);
+}
+
+#homepageContainer.slideRightXSm {
+  transform: translateX(14%);
+}
+
+#homepageContainer.slideLeft {
+  transform:translateX(0%);
+}
+
+/*@keyframes blink { 
+  50% { border-color: #ff0000; } 
+}*/
 
 #nameBox {
   background-color: #FFC000;
@@ -363,6 +404,16 @@
   text-transform: uppercase;
   line-height: 1;
   font-family: 'Dosis';
+  /*animation: blink .5s step-end infinite alternate;
+  animation-name: blink ;
+  animation-duration: .5s ;
+  animation-timing-function: step-end ;
+  animation-iteration-count: infinite ;
+  animation-direction: alternate ;*/
+}
+
+#nameBox.blinkingBorder {
+  border: 2px solid red;
 }
 
 #navmenu {
@@ -411,4 +462,8 @@
 
 .scrollable {
   overflow-y: scroll;
+}
+
+#blinking {
+  display:none;
 }
