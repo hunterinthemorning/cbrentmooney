@@ -3,11 +3,6 @@ import './App.css';
 import MediaQuery from 'react-responsive';
 import Button from 'react-bootstrap/Button';
 import ReactPlayer from 'react-player';
-import $ from 'jquery';
-
-$( document ).ready(function() {
-    console.log( "ready!" );
-});
 
 const BgPlayer = () => (
   <ReactPlayer
@@ -16,6 +11,7 @@ const BgPlayer = () => (
   width='100%'
   height='100%'
   playing
+  muted
   />
 )
 
@@ -440,6 +436,14 @@ class App extends Component {
       allColor: true,
       sColor: false,
       pColor: false
+    });
+  }
+
+  cClick = () => {
+    let c = this.state.cColor
+    this.setState({
+      allColor: false,
+      cColor: !c
     });
   }
 
