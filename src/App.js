@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import './App.css'; 
 import MediaQuery from 'react-responsive';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 import ReactPlayer from 'react-player';
+import $ from 'jquery';
+
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
 
 const BgPlayer = () => (
   <ReactPlayer
@@ -18,17 +19,13 @@ const BgPlayer = () => (
   />
 )
 
-const BgStill = () => (
-  <div id="bgStill"></div>
-)
-
-const HomePage = ({ visible,navVisible,click,aboutClick,servicesClick,portfolioClick,contactClick,navClose,slide,blinking,vidRef,showBgVid }) => (
+const HomePage = ({ visible,navVisible,click,aboutClick,servicesClick,portfolioClick,navClose,slide,blinking,vidRef,showBgVid }) => (
   <div id="homepageContainer" className={slide}>
     <MediaQuery query="(min-device-width: 1224px)">
       {showBgVid ? <BgPlayer /> : null }
       <div id="homepage" className={visible ? 'slideRight' : 'slideLeft'}>
         <NavMenu visible={navVisible} aboutClick={aboutClick} servicesClick={servicesClick} 
-          portfolioClick={portfolioClick} contactClick={contactClick} close={navClose} />
+          portfolioClick={portfolioClick} close={navClose} />
         <div id="nameBox" onClick={click}>C Brent Mooney</div>
         <div id="blinking">{blinking}</div>
       </div>
@@ -36,7 +33,7 @@ const HomePage = ({ visible,navVisible,click,aboutClick,servicesClick,portfolioC
     <MediaQuery query="(max-device-width: 1224px)">
       <div id="homepageMobile" className={visible ? 'slideRight' : 'slideLeft'}>
         <NavMenu visible={navVisible} aboutClick={aboutClick} servicesClick={servicesClick} 
-          portfolioClick={portfolioClick} contactClick={contactClick} close={navClose} />
+          portfolioClick={portfolioClick} close={navClose} />
         <div id="nameBox" onClick={click}>C Brent Mooney</div>
         <div id="blinking">{blinking}</div>
       </div>
@@ -44,31 +41,29 @@ const HomePage = ({ visible,navVisible,click,aboutClick,servicesClick,portfolioC
   </div>  
 )
 
-const NavMenu = ({ visible,aboutClick,servicesClick,portfolioClick,contactClick,close }) => (
+const NavMenu = ({ visible,aboutClick,servicesClick,portfolioClick,close }) => (
   <div id="navmenu" className={visible ? 'slideDown' : 'slideUp'}>
     <ul>
       <li><div onClick={aboutClick}>About Me</div></li>
       <li><div onClick={servicesClick}>Services</div></li>
       <li><div onClick={portfolioClick}>Portfolio</div></li>
-      <li><div onClick={contactClick}>Contact</div></li>
       <li><div id="navmenuClose" onClick={close}>X</div></li>
     </ul>
   </div>  
 )
 
-const NavMenuSidebar = ({ aboutClick,servicesClick,portfolioClick,contactClick,close,active }) => (
+const NavMenuSidebar = ({ aboutClick,servicesClick,portfolioClick,close,active }) => (
   <div id="navmenuSidebar">
   <ul>
-    {active != 'about' ? <li><div onClick={aboutClick}>About Me</div></li> : null }
-    {active != 'services' ? <li><div onClick={servicesClick}>Services</div></li> : null }
-    {active != 'portfolio' ? <li><div onClick={portfolioClick}>Portfolio</div></li> : null }
-    {active != 'contact' ? <li><div onClick={contactClick}>Contact</div></li> : null }
+    {active !== 'about' ? <li><div onClick={aboutClick}>About Me</div></li> : null }
+    {active !== 'services' ? <li><div onClick={servicesClick}>Services</div></li> : null }
+    {active !== 'portfolio' ? <li><div onClick={portfolioClick}>Portfolio</div></li> : null }
     <li><div onClick={close}>X</div></li>
   </ul>
 </div> 
 )
 
-const AboutSideBar = ({ visible,close,aboutClick,servicesClick,portfolioClick,contactClick }) => ( 
+const AboutSideBar = ({ visible,close,aboutClick,servicesClick,portfolioClick }) => ( 
   <div>
   <MediaQuery query="(min-device-width: 1224px)">
     <div id="aboutmeContainer" className={visible ? 'slideIn' : 'slideOut'}>
@@ -83,6 +78,11 @@ const AboutSideBar = ({ visible,close,aboutClick,servicesClick,portfolioClick,co
               quasi quod accusamus eos quod. Ab quos consequuntur eaque quo rem!
               Mollitia reiciendis porro quo magni incidunt dolore amet atque
               facilis ipsum deleniti rem!</p>
+          <div id="contactIcons">
+            <a href="//linkedin.com/in/c-brent-mooney-41400064" target="_blank" rel="nofollow"><i className="fab fa-linkedin"></i></a>
+            <a href="//vimeo.com/cbrentmooney" target="_blank" rel="nofollow"><i className="fab fa-vimeo"></i></a>
+            <a href="mailto:manningha@gmail.com" target="_blank" rel="nofollow"><i className="far fa-envelope" aria-hidden="true"></i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@ const AboutSideBar = ({ visible,close,aboutClick,servicesClick,portfolioClick,co
     <div id="aboutmeContainerMobile" className={visible ? 'slideIn' : 'slideOut'}>
       <div id="aboutmeMobile" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="aboutmeContents">
-          <NavMenuSidebar close={close} active={'about'} aboutClick={aboutClick} servicesClick={servicesClick} portfolioClick={portfolioClick} contactClick={contactClick} />
+          <NavMenuSidebar close={close} active={'about'} aboutClick={aboutClick} servicesClick={servicesClick} portfolioClick={portfolioClick} />
           <h2>About Me</h2>
           <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
               unde commodi aspernatur enim, consectetur. Cumque deleniti
@@ -101,6 +101,12 @@ const AboutSideBar = ({ visible,close,aboutClick,servicesClick,portfolioClick,co
               quasi quod accusamus eos quod. Ab quos consequuntur eaque quo rem!
               Mollitia reiciendis porro quo magni incidunt dolore amet atque
               facilis ipsum deleniti rem!</p>
+
+          <div id="contactIcons">
+            <a href="//linkedin.com/in/c-brent-mooney-41400064" target="_blank" rel="nofollow"><i className="fab fa-linkedin"></i></a>
+            <a href="//vimeo.com/cbrentmooney" target="_blank" rel="nofollow"><i className="fab fa-vimeo"></i></a>
+            <a href="mailto:manningha@gmail.com" target="_blank" rel="nofollow"><i className="far fa-envelope" aria-hidden="true"></i></a>
+          </div>
         </div>
       </div>
     </div>
@@ -108,7 +114,7 @@ const AboutSideBar = ({ visible,close,aboutClick,servicesClick,portfolioClick,co
   </div>
 )
 
-const ServicesSideBar = ({ visible,close,aboutClick,servicesClick,portfolioClick,contactClick }) => ( 
+const ServicesSideBar = ({ visible,close,aboutClick,servicesClick,portfolioClick }) => ( 
   <div id="servicesContainer">
     <MediaQuery query="(min-device-width: 1224px)">
       <div id="services" className={visible ? 'slideIn' : 'slideOut'}>
@@ -128,7 +134,7 @@ const ServicesSideBar = ({ visible,close,aboutClick,servicesClick,portfolioClick
     <MediaQuery query="(max-device-width: 1224px)">
       <div id="servicesMobile" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="servicesContents">
-          <NavMenuSidebar close={close} active={'services'} aboutClick={aboutClick} servicesClick={servicesClick} portfolioClick={portfolioClick} contactClick={contactClick} />
+          <NavMenuSidebar close={close} active={'services'} aboutClick={aboutClick} servicesClick={servicesClick} portfolioClick={portfolioClick} />
           <h2>Services</h2>
           <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
               unde commodi aspernatur enim, consectetur. Cumque deleniti
@@ -152,7 +158,7 @@ const PortfolioFilter = ({allClick,cClick,sClick,pClick,allColor,cColor,sColor,p
   </div> 
 )
 
-const PortfolioSideBar = ({ visible,close,allClick,cClick,sClick,pClick,allColor,cColor,sColor,pColor,aboutClick,servicesClick,portfolioClick,contactClick }) => ( 
+const PortfolioSideBar = ({ visible,close,allClick,cClick,sClick,pClick,allColor,cColor,sColor,pColor,aboutClick,servicesClick,portfolioClick }) => ( 
   <div id="portfolioContainer">
     <MediaQuery query="(min-device-width: 1224px)">
       <div id="portfolio" className={visible ? 'slideIn' : 'slideOut'}>
@@ -246,7 +252,7 @@ const PortfolioSideBar = ({ visible,close,allClick,cClick,sClick,pClick,allColor
     <MediaQuery query="(max-device-width: 1224px)">
       <div id="portfolioMobile" className={visible ? 'slideIn' : 'slideOut'}>
         <div id="portfolioContents" className="scrollable">
-          <NavMenuSidebar close={close} active={'portfolio'} aboutClick={aboutClick} servicesClick={servicesClick} portfolioClick={portfolioClick} contactClick={contactClick} />
+          <NavMenuSidebar close={close} active={'portfolio'} aboutClick={aboutClick} servicesClick={servicesClick} portfolioClick={portfolioClick} />
           <h2>Portfolio</h2>
           <PortfolioFilter allClick={allClick} cClick={cClick} sClick={sClick} pClick={pClick} allColor={allColor}
             cColor={cColor} sColor={sColor} pColor={pColor} />
@@ -335,41 +341,6 @@ const PortfolioSideBar = ({ visible,close,allClick,cClick,sClick,pClick,allColor
   </div>
 )
 
-const ContactSideBar = ({ visible,close,aboutClick,servicesClick,portfolioClick,contactClick }) => ( 
-  <div id="contactContainer">
-    <MediaQuery query="(min-device-width: 1224px)">
-      <div id="contact" className={visible ? 'slideIn' : 'slideOut'}>
-        <div id="contactCloseButton" onClick={close}>X</div>
-        <div id="contactContents">
-          <h2>Contact</h2>
-          <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
-              unde commodi aspernatur enim, consectetur. Cumque deleniti
-              temporibus ipsam atque a dolores quisquam quisquam adipisci
-              possimus laboriosam. Quibusdam facilis doloribus debitis! Sit
-              quasi quod accusamus eos quod. Ab quos consequuntur eaque quo rem!
-              Mollitia reiciendis porro quo magni incidunt dolore amet atque
-              facilis ipsum deleniti rem!</p>
-        </div>
-      </div>
-    </MediaQuery>
-    <MediaQuery query="(max-device-width: 1224px)">
-      <div id="contactMobile" className={visible ? 'slideIn' : 'slideOut'}>
-        <div id="contactContents">
-          <NavMenuSidebar close={close} active={'contact'} aboutClick={aboutClick} servicesClick={servicesClick} portfolioClick={portfolioClick} contactClick={contactClick} />
-          <h2>Contact</h2>
-          <p>Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae
-              unde commodi aspernatur enim, consectetur. Cumque deleniti
-              temporibus ipsam atque a dolores quisquam quisquam adipisci
-              possimus laboriosam. Quibusdam facilis doloribus debitis! Sit
-              quasi quod accusamus eos quod. Ab quos consequuntur eaque quo rem!
-              Mollitia reiciendis porro quo magni incidunt dolore amet atque
-              facilis ipsum deleniti rem!</p>
-        </div>
-      </div>
-    </MediaQuery>
-  </div>
-)
-
 class App extends Component {
 
   state = {
@@ -377,7 +348,6 @@ class App extends Component {
     aboutVisible: false,
     servicesVisible: false,
     portfolioVisible: false,
-    contactVisible: false,
     navmenuVisible: false,
     slide: 'slideLeft',
     blinking: 'true',
@@ -385,7 +355,12 @@ class App extends Component {
     allColor: true,
     cColor: false,
     sColor: false,
-    pColor:false
+    pColor:false,
+    cName: null,
+    cEmail: null,
+    cText: null,
+    mailSent: false,
+    error: null
   }
 
   openNavMenu = () => {
@@ -405,7 +380,6 @@ class App extends Component {
       aboutVisible: true,
       servicesVisible: false,
       portfolioVisible: false,
-      contactVisible: false,
       slide: 'slideRightSm'
     });
   }
@@ -416,7 +390,6 @@ class App extends Component {
       aboutVisible: false,
       servicesVisible: false,
       portfolioVisible: false,
-      contactVisible: false,
       slide: 'slideLeft'
     });
   }
@@ -428,7 +401,6 @@ class App extends Component {
       aboutVisible: false,
       servicesVisible: true,
       portfolioVisible: false,
-      contactVisible: false,
       slide: 'slideLeft'
     });
   }
@@ -438,8 +410,7 @@ class App extends Component {
       sidebarVisible: false,
       aboutVisible: false,
       servicesVisible: false,
-      portfolioVisible: false,
-      contactVisible: false
+      portfolioVisible: false
     });
   }
 
@@ -450,7 +421,6 @@ class App extends Component {
       aboutVisible: false,
       servicesVisible: false,
       portfolioVisible: true,
-      contactVisible: false,
       slide: 'slideRightLg'    
     });
   }
@@ -461,47 +431,15 @@ class App extends Component {
       aboutVisible: false,
       servicesVisible: false,
       portfolioVisible: false,
-      contactVisible: false,
       slide: 'slideLeft'
     });
-  }
-
-  /* Contact */
-  openContact = () => {
-    this.setState({
-      sidebarVisible: true,
-      aboutVisible: false,
-      servicesVisible: false,
-      portfolioVisible: false,
-      contactVisible: true,
-      slide: 'slideRightXSm'
-    });
-  }
-
-  closeContact = () => {
-    this.setState({
-      sidebarVisible: false,
-      aboutVisible: false,
-      servicesVisible: false,
-      portfolioVisible: false,
-      contactVisible: false,
-      slide: 'slideLeft'});
   }
 
   allClick = () => {
     this.setState({
       allColor: true,
-      cColor: false,
       sColor: false,
       pColor: false
-    });
-  }
-
-  cClick = () => {
-    let c = this.state.cColor
-    this.setState({
-      allColor: false,
-      cColor: !c
     });
   }
 
@@ -521,30 +459,39 @@ class App extends Component {
     });
   }
 
+  handleNameChange = (event) => {
+    this.setState({cName: event.target.value})
+  }
+
+  handleEmailChange = (event) => {
+    this.setState({cEmail: event.target.value})
+  }
+
+  handleTextChange = (event) => {
+    this.setState({cText: event.target.value})
+  }
+
   render() {
 
     return (
       <div id="App">
         <HomePage visible={this.state.sidebarVisible} navVisible={this.state.navmenuVisible} click={this.openNavMenu}
           aboutClick={this.openAboutMe} servicesClick={this.openServices}
-          portfolioClick={this.openPortfolio} contactClick={this.openContact}
+          portfolioClick={this.openPortfolio}
           navClose={this.closeNavMenu} slide={this.state.slide} blinking={this.state.blinking}
           showBgVid={this.state.showBgVid} />
         <AboutSideBar visible={this.state.aboutVisible} close={this.closeAboutMe}
           aboutClick={this.openAboutMe} servicesClick={this.openServices}
-          portfolioClick={this.openPortfolio} contactClick={this.openContact} />
+          portfolioClick={this.openPortfolio} />
         <ServicesSideBar visible={this.state.servicesVisible} close={this.closeServices} 
           aboutClick={this.openAboutMe} servicesClick={this.openServices}
-          portfolioClick={this.openPortfolio} contactClick={this.openContact} />
+          portfolioClick={this.openPortfolio} />
         <PortfolioSideBar visible={this.state.portfolioVisible} close={this.closePortfolio} 
           allClick={this.allClick} cClick={this.cClick} sClick={this.sClick} pClick={this.pClick}
           allColor={this.state.allColor} cColor={this.state.cColor} sColor={this.state.sColor} pColor={this.state.pColor} 
           aboutClick={this.openAboutMe} servicesClick={this.openServices}
-          portfolioClick={this.openPortfolio} contactClick={this.openContact} />
-        <ContactSideBar visible={this.state.contactVisible} close={this.closeContact}
-          aboutClick={this.openAboutMe} servicesClick={this.openServices}
-          portfolioClick={this.openPortfolio} contactClick={this.openContact} />
-      </div>
+          portfolioClick={this.openPortfolio} />
+       </div>
     );
   }
 }
