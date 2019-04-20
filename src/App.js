@@ -12,38 +12,38 @@ const BgPlayer = () => (
   height='100%'
   playing
   muted
+  loop
   />
 )
 
-const HomePage = ({ visible,navVisible,click,aboutClick,servicesClick,portfolioClick,navClose,slide,blinking,vidRef,showBgVid }) => (
+const HomePage = ({ visible,navVisible,click,aboutClick,servicesClick,portfolioClick,slide,blinking,vidRef,showBgVid }) => (
   <div id="homepageContainer" className={slide}>
     <MediaQuery query="(min-device-width: 1224px)">
       {showBgVid ? <BgPlayer /> : null }
       <div id="homepage" className={visible ? 'slideRight' : 'slideLeft'}>
         <NavMenu visible={navVisible} aboutClick={aboutClick} servicesClick={servicesClick} 
-          portfolioClick={portfolioClick} close={navClose} />
-        <div id="nameBox" onClick={click}>C Brent Mooney</div>
+          portfolioClick={portfolioClick} />
+        <div id="nameBox" onClick={click}>C. Brent Mooney</div>
         <div id="blinking">{blinking}</div>
       </div>
     </MediaQuery>
     <MediaQuery query="(max-device-width: 1224px)">
       <div id="homepageMobile" className={visible ? 'slideRight' : 'slideLeft'}>
         <NavMenu visible={navVisible} aboutClick={aboutClick} servicesClick={servicesClick} 
-          portfolioClick={portfolioClick} close={navClose} />
-        <div id="nameBox" onClick={click}>C Brent Mooney</div>
+          portfolioClick={portfolioClick} />
+        <div id="nameBox" onClick={click}>C. Brent Mooney</div>
         <div id="blinking">{blinking}</div>
       </div>
     </MediaQuery>
   </div>  
 )
 
-const NavMenu = ({ visible,aboutClick,servicesClick,portfolioClick,close }) => (
+const NavMenu = ({ visible,aboutClick,servicesClick,portfolioClick }) => (
   <div id="navmenu" className={visible ? 'slideDown' : 'slideUp'}>
     <ul>
       <li><div onClick={aboutClick}>About Me</div></li>
       <li><div onClick={servicesClick}>Services</div></li>
       <li><div onClick={portfolioClick}>Portfolio</div></li>
-      <li><div id="navmenuClose" onClick={close}>X</div></li>
     </ul>
   </div>  
 )
@@ -361,11 +361,7 @@ class App extends Component {
 
   openNavMenu = () => {
     this.setState({navmenuVisible: true,
-      blinking: 'false', showBgVid: false});
-  }
-
-  closeNavMenu = () => {
-    this.setState({navmenuVisible: false});
+      blinking: 'false'});
   }
 
   /* About Me */
@@ -482,7 +478,7 @@ class App extends Component {
         <HomePage visible={this.state.sidebarVisible} navVisible={this.state.navmenuVisible} click={this.openNavMenu}
           aboutClick={this.openAboutMe} servicesClick={this.openServices}
           portfolioClick={this.openPortfolio}
-          navClose={this.closeNavMenu} slide={this.state.slide} blinking={this.state.blinking}
+          slide={this.state.slide} blinking={this.state.blinking}
           showBgVid={this.state.showBgVid} />
         <AboutSideBar visible={this.state.aboutVisible} close={this.closeAboutMe}
           aboutClick={this.openAboutMe} servicesClick={this.openServices}
